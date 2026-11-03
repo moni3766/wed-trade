@@ -1,0 +1,23 @@
+1. Khởi động Backend (cex-engine)
+Mở Terminal 1 trong VS Code (đảm bảo đang ở thư mục D:\cex-engine):
+
+PowerShell
+cd src
+npx tsx server.ts
+Lưu ý: Tất cả các file (RedisPublisher.ts, WebSocketServer.ts, server.ts) đã được cấu hình cơ chế localPubSub dự phòng nên server sẽ chạy mượt mà trên Windows mà không bị crash lỗi Redis.
+
+2. Khởi động Frontend (cex-frontend)
+Mở Terminal 2 trong VS Code (hoặc gõ lệnh chuyển thư mục nếu đang ở thư mục gốc):
+
+PowerShell
+cd cex-frontend
+npm run dev
+Sau khi chạy xong, mở trình duyệt truy cập đường dẫn local (thường là http://localhost:5173) để giao diện kết nối WebSocket.
+
+3. Tùy chọn: Bật Service Redis trên Windows (Nếu muốn dùng Redis thật)
+Nếu hôm sau bạn muốn bật Redis Server thay vì dùng Event Bus nội bộ, mở PowerShell (Administrator) và chạy:
+
+PowerShell
+net start redis
+# Hoặc nếu cài Memurai:
+net start memurai
